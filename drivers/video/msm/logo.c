@@ -72,6 +72,7 @@ int load_565rle_image(char *filename)
 	}
 	count = sys_lseek(fd, (off_t)0, 2);
 	if (count <= 0) {
+		sys_close(fd);
 		err = -EIO;
 		goto err_logo_close_file;
 	}

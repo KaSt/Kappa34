@@ -152,6 +152,8 @@ do { \
 #define MDDI_HOST_REV_RATE_DIV  0x0002
 #endif
 
+#define MDDI_ACCESS_PKT_REG_DATA_EXT 126
+
 #define MDDI_MSG_EMERG(msg, ...)    \
 	if (mddi_msg_level > 0)  \
 		printk(KERN_EMERG msg, ## __VA_ARGS__);
@@ -373,7 +375,9 @@ typedef struct GCC_PACKED {
 	uint32 register_data_list[MDDI_HOST_MAX_CLIENT_REG_IN_SAME_ADDR];
 	/* list of 4-byte register data values for/from client registers */
 	/* For multi-read/write, 512(128 * 4) bytes of data available */
-
+#ifndef ENABLE_MDDI_MULTI_READ_WRITE
+	uint32 register_data_list_ext[4];
+#endif
 } mddi_register_access_packet_type;
 
 typedef union GCC_PACKED {
@@ -387,6 +391,7 @@ typedef union GCC_PACKED {
 	/* add 48 byte pad to ensure 64 byte llist struct, that can be
 	 * manipulated easily with cache */
 	uint32 alignment_pad[12];	/* 48 bytes */
+	mddi_register_access_packet_xl_type register_xl_pkt;
 #endif
 } mddi_packet_header_type;
 
@@ -411,7 +416,7 @@ typedef struct {
 #ifdef ENABLE_MDDI_MULTI_READ_WRITE
 #define MDDI_LLIST_POOL_SIZE 0x10000
 #else
-#define MDDI_LLIST_POOL_SIZE 0x1000
+#define MDDI_LLIST_POOL_SIZE 0x8000
 #endif
 #define MDDI_MAX_NUM_LLIST_ITEMS (MDDI_LLIST_POOL_SIZE / \
 		 sizeof(mddi_linked_list_type))
