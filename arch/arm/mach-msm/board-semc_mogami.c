@@ -1177,12 +1177,12 @@ static int __init snddev_poweramp_gpio_init(void)
 	}
 
 	/* Enabling HAC amplifier */
-	rc = gpio_tlmm_config(HAC_amp_gpio_config, GPIO_CFG_ENABLE);
-	if (rc) {
-		printk(KERN_ERR
-			"%s: gpio_tlmm_config(%#x)=%d\n",
-			__func__, HAC_amp_gpio_config, rc);
-	}
+	//rc = gpio_tlmm_config(HAC_amp_gpio_config, GPIO_CFG_ENABLE);
+	//if (rc) {
+	//	printk(KERN_ERR
+	//			"%s: gpio_tlmm_config(%#x)=%d\n",
+	//		__func__, HAC_amp_gpio_config, rc);
+	//}
 
 
 	return rc;
