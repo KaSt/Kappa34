@@ -317,7 +317,7 @@ obj-$(CONFIG_MACH_SAPPHIRE) += board-sapphire-keypad.o board-sapphire-panel.o
 obj-$(CONFIG_MACH_SAPPHIRE) += board-sapphire-mmc.o board-sapphire-wifi.o
 obj-$(CONFIG_MACH_SAPPHIRE) += board-sapphire-rfkill.o msm_vibrator.o
 
-obj-$(CONFIG_MACH_SEMC_URUSHI) += board-semc_mogami.o board-semc_mogami-wifi.o board-semc_mogami-rfkill.o semc_urushi.o
+obj-$(CONFIG_MACH_SEMC_URUSHI) += board-semc_mogami.o board-semc_mogami-wifi.o board-semc_mogami-rfkill.o semc_urushi.o vibrator-mogami.o
 
 CFLAGS_msm_vibrator.o += -Idrivers/staging/android
 CFLAGS_board-9615.o += -Idrivers/usb/gadget
