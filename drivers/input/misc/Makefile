@@ -62,6 +62,7 @@ obj-$(CONFIG_PMIC8XXX_FORCECRASH)       += pmic8xxx-forcecrash.o
 obj-$(CONFIG_PMIC8058_OTHC)             += pmic8058-othc.o
 obj-$(CONFIG_INPUT_PMIC8058_VIBRA_MEMLESS) += pmic8058-vib-memless.o
 obj-$(CONFIG_BOSCH_BMA150)              += bma150.o
+obj-$(CONFIG_INPUT_SIMPLE_REMOTE)  += simple_remote.o
 obj-$(CONFIG_INPUT_BMP180)		+= bmp180.o
 obj-$(CONFIG_INPUT_BMA250_NG)		+= bma250_ng.o
 obj-$(CONFIG_INPUT_BMG160)		+= bmg160.o
