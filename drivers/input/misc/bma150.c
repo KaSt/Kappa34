@@ -25,6 +25,8 @@
 #include <linux/slab.h>
 #include <linux/mutex.h>
 #include <linux/bma150.h>
+#include <linux/module.h>
+
 
 #define SENSOR_NAME			"bma150"
 #define GRAVITY_EARTH		9806550
